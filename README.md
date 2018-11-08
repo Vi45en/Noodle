@@ -83,8 +83,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## References
 
-* [Doodle Data Set]
-(sketchy.eye.gateh.edu)
+* [Doodle Data Set](sketchy.eye.gatech.edu)
 * IBM Watson Visual Recogntion Service
 * P5.Js Library
 * Anime.js Library
