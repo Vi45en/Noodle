@@ -1,5 +1,5 @@
 applications:
-- name: Noodle
+- name: my-app-name
   path: .
   command: npm start
   memory: 768M
