@@ -15,6 +15,7 @@ These instructions will get you a copy of the project up and running on your loc
     - Click **Create**.
     - Click **Show** to view the service credentials.
     - Copy the `apikey` value.
+1. Donwload and setup [Node.js](https://nodejs.org/en/download/)
 1. Download the [doodle dataset](http://sketchy.eye.gatech.edu) for training the model.
 1. Log in to [Watson Studio](https://datascience.ibm.com)
 1. Create a new watson tools project for your machine learning model and assign the storage and Watson Visual Recognition service instance. 
@@ -22,21 +23,58 @@ These instructions will get you a copy of the project up and running on your loc
 1. Create the classes for the assests you wish to train. 
 1. Train the model. 
 
-## Running the tests
+## Configuring the application
 
-Explain how to run the automated tests for this system
 
-### Break down into end to end tests
-
-Explain what these tests test and why
+2. Open the server.js file and change the api key for the visual recognition service. 
 
 ```
-Give an example
+iam_apikey: 'API-KEY'
 ```
 
-## Deployment
+## Running locally
 
-Add additional notes about how to deploy this on a live system
+1. Install the dependencies
+
+    ```
+    npm install
+    ```
+
+1. Run the application
+
+    ```
+    npm start
+    ```
+
+1. View the application in a browser at `localhost:8080`
+
+## Deploying to IBM Cloud as a Cloud Foundry Application
+
+1. Login to IBM Cloud with the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview)
+
+    ```
+    ibmcloud login
+    ```
+
+1. Target a Cloud Foundry organization and space.
+
+    ```
+    ibmcloud target --cf
+    ```
+
+1. Edit the *manifest.yml* file. Change the **name** field to something unique.  
+  For example, `- name: my-app-name`.
+  
+1. Change the websocket link in sketch.js to https://my-app-name.mybluemix.net
+  
+1. Deploy the application
+
+    ```
+    ibmcloud app push
+    ```
+
+1. View the application online at the app URL.  
+For example: https://my-app-name.mybluemix.net
 
 ## Built With
 
@@ -44,27 +82,15 @@ Add additional notes about how to deploy this on a live system
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
-## Contributing
+* [IBM Watson Visual Recogntion Service](https://console.bluemix.net/catalog/services/visual-recognition) - The Visual Recogniton Service used. 
+* [P5.Js Library](https://p5js.org) - A Sketching library with a full set of drawing functionality. 
+* [Anime.js Library](http://animejs.com) - A Javascript library for animations. 
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+## Demo
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Bedang Sen** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+http://noodle.mybluemix.net
 
 ## References
 
 * [Doodle Data Set](http://sketchy.eye.gatech.edu)
-* IBM Watson Visual Recogntion Service
-* P5.Js Library
-* Anime.js Library
+* [Doodle Animation for Splashscreen](https://codepen.io/ainalem/pen/dKjgBx)
