@@ -7,45 +7,26 @@ Doodle with Node.js and Watson Visual Recognition
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+1. Sign up for an [IBM Cloud account](https://console.bluemix.net/registration/).
+1. Download the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview).
+1. Create an instance of the Visual Recognition service and get your credentials:
+    - Go to the [Visual Recognition](https://console.bluemix.net/catalog/services/visual-recognition) page in the IBM Cloud Catalog.
+    - Log in to your IBM Cloud account.
+    - Click **Create**.
+    - Click **Show** to view the service credentials.
+    - Copy the `apikey` value.
+1. Download the [doodle dataset](http://sketchy.eye.gatech.edu) for training the model.
+1. Log in to [Watson Studio](https://datascience.ibm.com)
+1. Create a new watson tools project for your machine learning model and assign the storage and Watson Visual Recognition service instance. 
+1. Add the image assests to your project.
+1. Create the classes for the assests you wish to train. 
+1. Train the model. 
 
 ## Running the tests
 
 Explain how to run the automated tests for this system
 
 ### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
 
 Explain what these tests test and why
 
