@@ -26,7 +26,7 @@ These instructions will get you a copy of the project up and running on your loc
 ## Configuring the application
 
 
-2. Open the server.js file and change the api key for the visual recognition service. 
+1. Open the server.js file and change the api key for the visual recognition service. 
 
 ```
 iam_apikey: 'API-KEY'
