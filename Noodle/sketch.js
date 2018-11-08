@@ -6,8 +6,8 @@ var isDrawing = false;
 
 const timeLimit = 25;
 var x;
-// var socket= new WebSocket('ws://localhost:8080');
-var socket = new WebSocket('ws://noodle.mybluemix.net');
+var socket= new WebSocket('ws://localhost:8080');
+// var socket = new WebSocket('ws://my-app-name.mybluemix.net');
 var winSong;
 var loseSong;
 var congratulationsSong;
