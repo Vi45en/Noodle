@@ -142,7 +142,7 @@ visualRecognition.classify(params, function(err, response) {
     }
     else
 	{
-		console.log("Was unable to identify the doodle. You suck! ");
+		console.log("Was unable to identify the doodle. You lose! ");
 		Results = "0";
 
 	}
