@@ -1,7 +1,7 @@
 
-# NOODLE
+# Noodle
 
-Doodle with Node.js and Watson Visual Recognition
+Doodle with Node.js and Watson Visual Recognition.
 
 ## Getting Started
 
@@ -15,9 +15,9 @@ These instructions will get you a copy of the project up and running on your loc
     - Click **Create**.
     - Click **Show** to view the service credentials.
     - Copy the `apikey` value.
-1. Donwload and setup [Node.js](https://nodejs.org/en/download/)
+1. Download and setup [Node.js](https://nodejs.org/en/download/).
 1. Download the [doodle dataset](http://sketchy.eye.gatech.edu) for training the model.
-1. Log in to [Watson Studio](https://datascience.ibm.com)
+1. Log in to [Watson Studio](https://datascience.ibm.com).
 1. Create a new watson tools project for your machine learning model and assign the storage and Watson Visual Recognition service instance. 
 1. Add the image assests to your project.
 1. Create the classes for the assests you wish to train. 
@@ -34,13 +34,13 @@ iam_apikey: 'API-KEY'
 
 ## Running locally
 
-1. Install the dependencies
+1. Install the dependencies.
 
     ```
     npm install
     ```
 
-1. Run the application
+1. Run the application.
 
     ```
     npm start
@@ -50,7 +50,7 @@ iam_apikey: 'API-KEY'
 
 ## Deploying to IBM Cloud as a Cloud Foundry Application
 
-1. Login to IBM Cloud with the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview)
+1. Login to IBM Cloud with the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview).
 
     ```
     ibmcloud login
@@ -67,7 +67,7 @@ iam_apikey: 'API-KEY'
   
 1. Change the websocket link in sketch.js to https://my-app-name.mybluemix.net
   
-1. Deploy the application
+1. Deploy the application.
 
     ```
     ibmcloud app push
@@ -77,10 +77,6 @@ iam_apikey: 'API-KEY'
 For example: https://my-app-name.mybluemix.net
 
 ## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 * [IBM Watson Visual Recogntion Service](https://console.bluemix.net/catalog/services/visual-recognition) - The Visual Recogniton Service used. 
 * [P5.Js Library](https://p5js.org) - A Sketching library with a full set of drawing functionality. 
