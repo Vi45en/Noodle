@@ -3,8 +3,8 @@ var VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3'
 var fs = require('fs');
 
 var visualRecognition = new VisualRecognitionV3({
-  version: '2018-03-19',
-  iam_apikey: 'gLr-_5z0bsp7igRRzrI7gnnN-xalLujHeM3fpu4cuADd'
+  version: '{version}', //Change the version to the serivce version.  
+  iam_apikey: '{API-KEY}'
 });
 
 var index = 0;
