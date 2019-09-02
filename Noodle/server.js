@@ -104,13 +104,13 @@ function base64ToPNG(data, socket) {
 
   data = data.replace(/^data:image\/png;base64,/, '');
 
-  fs.writeFileSync(path.resolve(__dirname, 'Capture.PNG'), data, 'base64', function(err) {
+  fs.writeFileSync(path.resolve(__dirname, 'doodle.PNG'), data, 'base64', function(err) {
     if (err) throw err;
   });
 
 
   //sleep(1000);
-var images_file= fs.createReadStream(path.resolve(__dirname, 'Capture.PNG'));
+var images_file= fs.createReadStream(path.resolve(__dirname, 'doodle.PNG'));
 
 var owners = ["me"];
 var threshold = 0.8;

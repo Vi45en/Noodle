@@ -254,7 +254,6 @@ function setup() {
 
 			document.getElementById('eraser').innerHTML = "Pen";
 			document.getElementById('canvascontainer').style.cursor = "url('double-sided-eraser.png'), crosshair";
-			// document.getElementById("canvascontainer").style.cursor = "pointer";
 
 			isEraser = false;
 		}
@@ -282,7 +281,6 @@ function setup() {
 
 	// Splashview button transition.
 	$('.spashviewButton').click(function () {
-		// console.log("Does this work?");
 
 		$('.splashscreen').parent().fadeOut(500);
 		$('.questionView').parent().fadeIn(500);
@@ -345,18 +343,8 @@ function draw() {
 function saveDrawing() {
 	var canvas = $('canvas')[0];
 	data = canvas.toDataURL('image/png').replace(/data:image\/png;base64,/, '');
-
-	//var iname = 'img_' + index + '.png';
-
-	//post to php
-
-	// console.log("hello");
-	// socket.emit('check',"hi");
+	
 	socket.send(data);
-
-	// socket.addEventListener('click', () => {
-	//   socket.send(data);
-	// });
 
 	clearDrawing();
 	clearInterval(x);
