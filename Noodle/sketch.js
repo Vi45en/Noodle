@@ -1,4 +1,9 @@
+/******************* sketch.js ********************
+ * 
+ *************************************************/
 
+
+//  Initialize drawing variables
 var drawing = [];
 var currentPath = [];
 var index = 0;
@@ -6,7 +11,7 @@ var isDrawing = false;
 
 const timeLimit = 25;
 var x;
-var socket= new WebSocket('ws://localhost:8080');
+var socket = new WebSocket('ws://localhost:8080');
 // var socket = new WebSocket('ws://my-app-name.mybluemix.net');
 var winSong;
 var loseSong;
@@ -22,13 +27,6 @@ var isEraser = true;
 var brushColor = 0;
 var brushSize = 4;
 
-// var classes = ["Airplane", "Dolphin", "Window", "Wine_Bottle", "Zebra", "Windmill","Wheelchair", "Fish"];
-
-// var classes = ["Airplane", "Alarm Clock", "Ant", "Ape", "Apple",
-// 			"Armor", "Axe", "Banana", "Bat", "Bear", "Bee",
-// 			"Beetle", "Bell", "Bench", "Bicycle", "Blimp", "Bread",
-// 			"Butterfly", "Dolphin", "Fish", "Wheelchair", "Windmill",
-// 			"Window", "Wine_Bottle", "Zebra"];
 
 function setup() {
 
@@ -60,13 +58,13 @@ function setup() {
 				easing: 'easeOutQuad',
 				delay: (_, i) => 1000 + i * 15
 			},
-												 {
-													 value: 0,
-													 duration: 500,
-													 easing: 'easeOutQuad',
-													 delay: (_, i) => 8700 + i * 15
-												 }
-												]
+			{
+				value: 0,
+				duration: 500,
+				easing: 'easeOutQuad',
+				delay: (_, i) => 8700 + i * 15
+			}
+			]
 		});
 		anime({
 			targets: '.pig',
@@ -163,33 +161,29 @@ function setup() {
 	score = 0;
 
 	socket.addEventListener('message', event => {
-		console.log("He is listening...");
+		console.log("Server is listening...");
 
 		console.log(`Message from server: ${event.data}`)
 
-		if(`${event.data}`.charAt(0) === '{')
-		{
+		if (`${event.data}`.charAt(0) === '{') {
 			console.log("classes are : ")
 			var JSON_obj = JSON.parse(`${event.data}`);
 			var classIndex = 0;
-			while(classIndex < JSON_obj.classifiers[0].classes.length)
-			{
+			while (classIndex < JSON_obj.classifiers[0].classes.length) {
 				classes[classIndex] = JSON_obj.classifiers[0].classes[classIndex].class;
 				classIndex++;
 			}
 			console.log(classes);
 		}
 
-		else if(`${event.data}`.charAt(0) === '0' || `${event.data}` != currentDraw )
-		{
-				// DEBUG: This is the wrong answer.
-				console.log("You guessed wrong!");
+		else if (`${event.data}`.charAt(0) === '0' || `${event.data}` != currentDraw) {
+			// DEBUG: This is the wrong answer.
+			console.log("You guessed wrong!");
 
-				loseSong.play();
+			loseSong.play();
 		}
 
-		else
-		{
+		else {
 			// DEBUG: This is the correct answer.
 			console.log("You guessed right!");
 
@@ -197,7 +191,7 @@ function setup() {
 			winSong.play();
 
 
-			console.log("Score : "  + score);
+			console.log("Score : " + score);
 			if (score == 5) {
 				$('.badgeContainer').parent().fadeIn(500);
 				$('.questionView').parent().fadeOut(0);
@@ -208,7 +202,7 @@ function setup() {
 			}
 		}
 
-		index = Math.floor((Math.random() * (classes.length-1)) + 1);
+		index = Math.floor((Math.random() * (classes.length - 1)) + 1);
 		currentDraw = classes[index];
 		previousDraw = currentDraw;
 		console.log("Doodle : " + currentDraw);
@@ -223,10 +217,10 @@ function setup() {
 
 	document.getElementById('canvascontainer').style.cursor = "url('https://raw.githubusercontent.com/mcnitt/simple-jquery-drawing-app/master/img/cursor.png'), crosshair";
 
-	index++; // DEBUG: do we need this?
+	index++;
 	console.log("class length : " + classes.length);
 
-	index = Math.floor((Math.random() * (classes.length-1)) + 1);
+	index = Math.floor((Math.random() * (classes.length - 1)) + 1);
 	currentDraw = classes[index];
 	previousDraw = currentDraw;
 	console.log("Doodle : " + currentDraw);
@@ -247,9 +241,8 @@ function setup() {
 	var clearButton = select('#clearButton');
 	clearButton.mousePressed(clearDrawing);
 
-	var skipButton = select('#eraser');
-	skipButton.mousePressed((function()
-	{
+	var erasor_button = select('#eraser');
+	erasor_button.mousePressed((function () {
 		// location.reload();
 
 		console.log("IsEraser : " + isEraser);
@@ -260,7 +253,7 @@ function setup() {
 			brushSize = 25;
 
 			document.getElementById('eraser').innerHTML = "Pen";
-			document.getElementById('canvascontainer').style.cursor = "url('double-sided-eraser.png'), crosshair" ;
+			document.getElementById('canvascontainer').style.cursor = "url('double-sided-eraser.png'), crosshair";
 			// document.getElementById("canvascontainer").style.cursor = "pointer";
 
 			isEraser = false;
@@ -288,7 +281,7 @@ function setup() {
 	$('.badgeContainer').parent().fadeOut();
 
 	// Splashview button transition.
-	$('.spashviewButton').click(function() {
+	$('.spashviewButton').click(function () {
 		// console.log("Does this work?");
 
 		$('.splashscreen').parent().fadeOut(500);
@@ -297,7 +290,7 @@ function setup() {
 	});
 
 	// Question View button transition.
-	$('.questionViewButton').click(function() {
+	$('.questionViewButton').click(function () {
 		$('.questionView').parent().fadeOut(500);
 		$('.topbar').parent().fadeIn(500, startTimer());
 	});
@@ -315,11 +308,10 @@ function endPath() {
 	isDrawing = false;
 }
 
-function draw(){
+function draw() {
 	background(255);
 
-	if (isDrawing)
-	{
+	if (isDrawing) {
 		var point = {
 			x: mouseX,
 			y: mouseY,
@@ -337,10 +329,10 @@ function draw(){
 
 	// strokeWeight(4);
 	noFill();
-	for(var i = 0; i < drawing.length; i++){
+	for (var i = 0; i < drawing.length; i++) {
 		var path = drawing[i];
 		beginShape();
-		for(var j = 0; j < path.length; j++){
+		for (var j = 0; j < path.length; j++) {
 			stroke(path[j].c);
 			strokeWeight(path[j].s);
 			// console.log("path[j].s : " + path[j].s);
@@ -350,8 +342,7 @@ function draw(){
 	}
 }
 
-function saveDrawing()
-{
+function saveDrawing() {
 	var canvas = $('canvas')[0];
 	data = canvas.toDataURL('image/png').replace(/data:image\/png;base64,/, '');
 
@@ -393,11 +384,10 @@ function deleteDrawing(key) {
 
 // Pads a zero in front of single digit numbers. This is for the time formatting.
 function pad(d) {
-    return (d < 10) ? '0' + d.toString() : d.toString();
+	return (d < 10) ? '0' + d.toString() : d.toString();
 }
 
-function startTimer()
-{
+function startTimer() {
 	// Set the date we're counting down to
 	var countDownTime = timeLimit;
 	document.getElementById("timeLeft").innerHTML = pad(countDownTime);
@@ -406,22 +396,22 @@ function startTimer()
 
 
 	// Update the count down every 1 second
-	x = setInterval(function() {
+	x = setInterval(function () {
 		countDownTime--;
 
-		if (countDownTime/timeLimit > 0.75) {
+		if (countDownTime / timeLimit > 0.75) {
 			document.getElementById("timeLeft").innerHTML = pad(countDownTime);
 			document.getElementById("clock-time").style.color = "rgb(69, 122, 190)";
 		}
-		else if (countDownTime/timeLimit > 0.5) {
+		else if (countDownTime / timeLimit > 0.5) {
 			document.getElementById("timeLeft").innerHTML = pad(countDownTime);
 			document.getElementById("clock-time").style.color = "rgb(228, 223, 95)";
 		}
-		else if (countDownTime/timeLimit > 0.25) {
+		else if (countDownTime / timeLimit > 0.25) {
 			document.getElementById("timeLeft").innerHTML = pad(countDownTime);
 			document.getElementById("clock-time").style.color = "rgb(255, 208, 87)";
 		}
-		else if (countDownTime/timeLimit > 0) {
+		else if (countDownTime / timeLimit > 0) {
 			document.getElementById("timeLeft").innerHTML = pad(countDownTime);
 			document.getElementById("clock-time").style.color = "rgb(244, 118, 106)";
 		}
