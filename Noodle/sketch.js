@@ -342,7 +342,26 @@ function draw() {
 
 function saveDrawing() {
 	var canvas = $('canvas')[0];
-	data = canvas.toDataURL('image/png').replace(/data:image\/png;base64,/, '');
+
+	/* ------------------------------------------------------------- */
+
+	// create an off-screen canvas
+    var temp_canvas = document.createElement('canvas'),
+        ctx = temp_canvas.getContext('2d');
+
+    // set its dimension to target size
+    temp_canvas.width = 32;
+    temp_canvas.height = 32;
+
+    // draw source image into the off-screen canvas:
+    ctx.drawImage(canvas, 0, 0, 32, 32);
+
+    // encode image to data-uri with base64 version of compressed image
+	// return canvas.toDataURL();
+	
+	/* --------------------------------------------------------------*/
+	 	
+	data = temp_canvas.toDataURL('image/png').replace(/data:image\/png;base64,/, '');
 	
 	socket.send(data);
 
