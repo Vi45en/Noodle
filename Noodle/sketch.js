@@ -11,8 +11,8 @@ var isDrawing = false;
 
 const timeLimit = 25;
 var x;
-//var socket = new WebSocket('ws://localhost:8080');
-var socket = new WebSocket('ws://doodle-workshop.eu-gb.mybluemix.net');
+var socket = new WebSocket('ws://localhost:8080');
+//var socket = new WebSocket('ws://doodle-workshop.eu-gb.mybluemix.net');
 var winSong;
 var loseSong;
 var congratulationsSong;
@@ -156,7 +156,7 @@ function setup() {
 		animate();
 		setTimeout(schedule, 12900);
 	}
-	schedule();
+	//schedule();
 
 	score = 0;
 
@@ -213,8 +213,9 @@ function setup() {
 		document.getElementById('doodle_index').innerHTML = score;
 	});
 
-	socket.onopen = () => socket.send('class');
- 
+	socket.send('class');
+ 	console.log("message sent")
+
 	document.getElementById('canvascontainer').style.cursor = "url('https://raw.githubusercontent.com/mcnitt/simple-jquery-drawing-app/master/img/cursor.png'), crosshair";
 
 	index++;

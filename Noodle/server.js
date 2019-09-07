@@ -1,10 +1,11 @@
 
 var VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3');
 var fs = require('fs');
+require('dotenv').config({path: __dirname + '/.env'})
 
 var visualRecognition = new VisualRecognitionV3({
   version: '2018-03-19', //Change the version to the serivce version.  
-  iam_apikey: '0o2QcHHy16qsiSch0M3ylgSjbsEiT3PiDA3qJeWmlUFR'
+  iam_apikey: process.env['API_KEY']
 });
 
 var index = 0;
@@ -72,7 +73,7 @@ server1.on('connection', socket => {
  // socket.send('Hello world!');
 
  socket.addEventListener('message', event => {
-  //console.log(`Message from client: ${event.data}`)
+  console.log(`Message from client: ${event.data}`)
 
   if (`${event.data}`==='class')
   {
