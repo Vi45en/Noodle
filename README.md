@@ -26,10 +26,10 @@ These instructions will get you a copy of the project up and running on your loc
 ## Configuring the application
 
 
-1. Open the server.js file and change the api key for the visual recognition service. 
+1. Create a file with the following content and save it as .env.
 
 ```
-iam_apikey: 'API-KEY'
+API_KEY='YOUR-API-KEY'
 ```
 
 ## Running locally
