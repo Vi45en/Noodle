@@ -356,6 +356,8 @@ function saveDrawing() {
     // draw source image into the off-screen canvas:
     ctx.drawImage(canvas, 0, 0, 32, 32);
 
+	console.log
+
     // encode image to data-uri with base64 version of compressed image
 	// return canvas.toDataURL();
 	
