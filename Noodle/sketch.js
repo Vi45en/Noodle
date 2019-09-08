@@ -156,7 +156,7 @@ function setup() {
 		animate();
 		setTimeout(schedule, 12900);
 	}
-	//schedule();
+	schedule();
 
 	score = 0;
 
