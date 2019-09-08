@@ -12,7 +12,7 @@ var isDrawing = false;
 const timeLimit = 25;
 var x;
 var socket = new WebSocket('ws://localhost:8080');
-// var socket = new WebSocket('ws://my-app-name.mybluemix.net');
+//var socket = new WebSocket('ws://doodle-workshop.eu-gb.mybluemix.net');
 var winSong;
 var loseSong;
 var congratulationsSong;
@@ -156,7 +156,7 @@ function setup() {
 		animate();
 		setTimeout(schedule, 12900);
 	}
-	schedule();
+	//schedule();
 
 	score = 0;
 
@@ -174,46 +174,53 @@ function setup() {
 				classIndex++;
 			}
 			console.log(classes);
+			document.getElementById('doodle_draw_main').innerHTML = " ";
 		}
 
-		else if (`${event.data}`.charAt(0) === '0' || `${event.data}` != currentDraw) {
-			// DEBUG: This is the wrong answer.
-			console.log("You guessed wrong!");
+		// Change this to teh name of the real classifier
 
+		else if (`${event.data}`.charAt(0) === '0' || `${event.data}` != "real_Test.zip") {
+			// DEBUG: This is the wrong answer.
+			console.log("This signature is fake!");
+			document.getElementById('doodle_draw_main').innerHTML = "Fake Signature Detected!";
+			document.getElementById('first_line').innerHTML = " ";
 			loseSong.play();
 		}
 
 		else {
 			// DEBUG: This is the correct answer.
 			console.log("You guessed right!");
+			document.getElementById('doodle_draw_main').innerHTML = "Signature is Authentic!";
+			document.getElementById('first_line').innerHTML = " ";
 
-			score++;
+			// score++;
 			winSong.play();
 
 
-			console.log("Score : " + score);
-			if (score == 5) {
-				$('.badgeContainer').parent().fadeIn(500);
-				$('.questionView').parent().fadeOut(0);
-				$('.topbar').parent().fadeIn(0);
-				$('.buttonHolder').parent().fadeOut(0);
-				stroke(0);
-				// document.getElementById('saveButton').fadeOut();
-			}
+			// console.log("Score : " + score);
+			// if (score == 5) {
+			// 	$('.badgeContainer').parent().fadeIn(500);
+			// 	$('.questionView').parent().fadeOut(0);
+			// 	$('.topbar').parent().fadeIn(0);
+			// 	$('.buttonHolder').parent().fadeOut(0);
+			// 	stroke(0);
+			// 	// document.getElementById('saveButton').fadeOut();
+			// }
 		}
 
-		index = Math.floor((Math.random() * (classes.length - 1)) + 1);
-		currentDraw = classes[index];
-		previousDraw = currentDraw;
-		console.log("Doodle : " + currentDraw);
-		document.getElementById('doodle_draw').innerHTML = currentDraw;
-		document.getElementById('doodle_draw_main').innerHTML = currentDraw;
+		// index = Math.floor((Math.random() * (classes.length - 1)) + 1);
+		// currentDraw = classes[index];
+		// previousDraw = currentDraw;
+		// console.log("Doodle : " + currentDraw);
+		// document.getElementById('doodle_draw').innerHTML = currentDraw;
+		// document.getElementById('doodle_draw_main').innerHTML = currentDraw;
 
-		console.log("SCORE : " + score);
-		document.getElementById('doodle_index').innerHTML = score;
+		// console.log("SCORE : " + score);
+		// document.getElementById('doodle_index').innerHTML = score;
 	});
 
 	socket.send('class');
+ 	console.log("message sent")
 
 	document.getElementById('canvascontainer').style.cursor = "url('https://raw.githubusercontent.com/mcnitt/simple-jquery-drawing-app/master/img/cursor.png'), crosshair";
 

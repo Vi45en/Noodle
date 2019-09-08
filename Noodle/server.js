@@ -6,7 +6,7 @@ var VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3'
 
 var visualRecognition = new VisualRecognitionV3({
   version: '2018-03-19',
-  iam_apikey: 'Q2GQXnei1Ku5KuZ-ER97TYts8Bg2EZKrrm6rT8b4tgXi'
+  iam_apikey: 'aiMr7HDH417LDLzlNOqDE8hm-7W4cObl5r273MU6ibT2'
 });
 
 var wml_credentials = {
@@ -77,8 +77,8 @@ server1.on('connection', socket => {
 
   // socket.send('Hello world!');
 
-  socket.addEventListener('message', event => {
-    //console.log(`Message from client: ${event.data}`)
+ socket.addEventListener('message', event => {
+  console.log(`Message from client: ${event.data}`)
 
     if (`${event.data}` === 'class') {
       visualRecognition.listClassifiers({
@@ -120,14 +120,15 @@ function base64ToPNG(data, socket) {
   var images_file = fs.createReadStream(path.resolve(__dirname, 'doodle.PNG'));
   
   
-  var classifier_ids = ["DoodleVisualRecognition_1899728297"];
-  var threshold = 0.6;
+  var classifier_ids = ["DefaultCustomModel_1017241942"];
+var threshold = 0.6;
 
-  var params = {
-    images_file: images_file,
-    classifier_ids: classifier_ids,
-    threshold: threshold
-  };
+var params = {
+	images_file: images_file,
+	classifier_ids: classifier_ids,
+	threshold: threshold
+};
+
 
   visualRecognition.classify(params, function (err, response) {
     if (err) {
@@ -194,6 +195,8 @@ function base64ToPNG(data, socket) {
   //   socket.send('processresult', { "error": error });
 
   // });
+
+}
 
 
 function processdata( endpoint_url, payload )

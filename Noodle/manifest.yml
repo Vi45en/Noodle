@@ -1,5 +1,5 @@
 applications:
-- name: my-app-name
+- name: doodle-workshop
   path: .
   command: npm start
-  memory: 768M
+  memory: 256M
