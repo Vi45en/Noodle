@@ -1,7 +1,8 @@
 
-# Noodle
+# Signature Fraud Detection using Watson
 
-Doodle with Node.js and Watson Visual Recognition.
+Integrating a signature fraud detection model into the doodling canvas. 
+Click [here](https://github.com/bedangSen/Signature-Fraud-Detection) to read more about how to create the signature fraud detection model. 
 
 ## Getting Started
 
