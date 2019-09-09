@@ -6,7 +6,7 @@ var VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3'
 
 var visualRecognition = new VisualRecognitionV3({
   version: '2018-03-19',
-  iam_apikey: 'aiMr7HDH417LDLzlNOqDE8hm-7W4cObl5r273MU6ibT2'
+  iam_apikey: 'svOd8yciWk4beJettGZtJxvt2qxuBvgcpxvjOEsAd5Ot'
 });
 
 var wml_credentials = {
