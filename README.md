@@ -8,7 +8,7 @@ Click [here](https://github.com/bedangSen/Signature-Fraud-Detection) to read mor
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-1. Sign up for an [IBM Cloud account](https://console.bluemix.net/registration/).
+1. Sign up for an [IBM Cloud account](http://ibm.biz/DoodleWorkshop).
 1. Download the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview).
 1. Create an instance of the Visual Recognition service and get your credentials:
     - Go to the [Visual Recognition](https://console.bluemix.net/catalog/services/visual-recognition) page in the IBM Cloud Catalog.
