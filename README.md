@@ -16,8 +16,8 @@ These instructions will get you a copy of the project up and running on your loc
     - Click **Show** to view the service credentials.
     - Copy the `apikey` value.
 1. Download and setup [Node.js](https://nodejs.org/en/download/).
-1. Download the [doodle dataset](http://sketchy.eye.gatech.edu) for training the model.
-1. Log in to [Watson Studio](https://datascience.ibm.com).
+1. Download the [doodle dataset](https://ibm.box.com/s/w7inozi37sm7zylvh161b00ni8zckm1g) for training the model.
+1. Log in to [Watson Studio](https://dataplatform.ibm.com).
 1. Create a new watson studio project for your machine learning model and assign the storage and Watson Visual Recognition service instance. 
 1. Add the image assests to your project.
 1. Create the classes for the assests you wish to train. 
