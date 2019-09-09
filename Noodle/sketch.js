@@ -231,12 +231,29 @@ function setup() {
 	currentDraw = classes[index];
 	previousDraw = currentDraw;
 	console.log("Doodle : " + currentDraw);
-	document.getElementById('doodle_draw').innerHTML = currentDraw;
+	// document.getElementById('doodle_draw').innerHTML = currentDraw;
 	document.getElementById('doodle_draw_main').innerHTML = currentDraw;
 
 	// Setting up canvas elements and other elements from the main page.
-	canvas = createCanvas(800, 600);
+	canvas = createCanvas(800, 600);	
+	document.getElementById("defaultCanvas0").style.backgroundImage = "url('http://www.samskirrow.com/background.png')";
+
 	canvas.parent('canvascontainer');
+	
+	// var canvas2 = document.getElementById("defaultCanvas0"),
+    // ctx = canvas2.getContext("2d");
+
+	// // canvas.width = 903;
+	// // canvas.height = 657;
+
+
+	// var background = new Image();
+	// background.src = "http://www.samskirrow.com/background.png";
+
+	// Make sure the image is loaded first otherwise nothing will draw.
+	background.onload = function(){
+		ctx.drawImage(background,0,0);   
+	}
 
 
 	canvas.mousePressed(startPath);
