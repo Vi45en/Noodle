@@ -2,7 +2,7 @@
 # Noodle
 
 Doodle with Node.js and Watson Visual Recognition.
-Get the [presentation](https://ibm.box.com/s/w7inozi37sm7zylvh161b00ni8zckm1g) for training the model.
+Get the [presentation](https://ibm.box.com/s/w7inozi37sm7zylvh161b00ni8zckm1g).
 
 ## Getting Started
 
